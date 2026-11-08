@@ -1,0 +1,14 @@
+credit-repair-orchestrator/
+├── apps/
+│   ├── member-portal/           # Frontend intake, credit score simulator & dispute tracker
+│   └── api-gateway/             # Express server for report parsing, dispute generation & handoff
+├── packages/
+│   ├── fcra-rules-engine/       # Detects FCRA violations, obsolete debts & duplicate tradelines
+│   ├── dispute-generator/       # Auto-fills certified FCRA dispute letters (Equifax/Experian/TransUnion)
+│   ├── debt-optimizer/          # Calculates Snowball/Avalanche payoff & routes LUCR micro-grants
+│   └── mortgage-handoff/        # Exports 640+ FICO verified profiles directly to home-loan-orchestrator
+├── schemas/
+│   └── credit-profile.json
+├── package.json
+├── tsconfig.json
+└── docker-compose.yml
