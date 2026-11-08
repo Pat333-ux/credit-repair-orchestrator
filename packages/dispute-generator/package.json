@@ -1,0 +1,12 @@
+{
+  "name": "@credit-orchestrator/dispute-generator",
+  "version": "1.0.0",
+  "main": "dist/letters.js",
+  "types": "dist/letters.d.ts",
+  "dependencies": {
+    "@credit-orchestrator/fcra-rules-engine": "*"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
