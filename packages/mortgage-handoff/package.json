@@ -1,0 +1,12 @@
+{
+  "name": "@credit-orchestrator/mortgage-handoff",
+  "version": "1.0.0",
+  "main": "dist/handoff.js",
+  "types": "dist/handoff.d.ts",
+  "dependencies": {
+    "@credit-orchestrator/fcra-rules-engine": "*"
+  },
+  "scripts": {
+    "build": "tsc"
+  }
+}
