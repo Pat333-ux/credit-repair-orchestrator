@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://nwo-dao.org/schemas/credit-profile.json",
+  "title": "MemberCreditProfile",
+  "type": "object",
+  "required": [
+    "memberId",
+    "firstName",
+    "lastName",
+    "address",
+    "city",
+    "state",
+    "zip",
+    "ssnLast4",
+    "currentFico",
+    "walletAddress",
+    "tradelines"
+  ],
+  "properties": {
+    "memberId": { "type": "string" },
+    "firstName": { "type": "string" },
+    "lastName": { "type": "string" },
+    "address": { "type": "string" },
+    "city": { "type": "string" },
+    "state": { "type": "string" },
+    "zip": { "type": "string" },
+    "ssnLast4": { "type": "string", "pattern": "^[0-9]{4}$" },
+    "currentFico": { "type": "integer", "minimum": 300, "maximum": 850 },
+    "walletAddress": { "type": "string", "pattern": "^0x[a-fA-F0-9]{40}$" },
+    "tradelines": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["accountId", "creditorName", "accountType", "balance", "creditLimit", "status", "dateOfFirstDelinquency"],
+        "properties": {
+          "accountId": { "type": "string" },
+          "creditorName": { "type": "string" },
+          "originalCreditor": { "type": "string" },
+          "accountType": { "type": "string", "enum": ["REVOLVING", "INSTALLMENT", "COLLECTION", "MEDICAL"] },
+          "balance": { "type": "number", "minimum": 0 },
+          "creditLimit": { "type": "number", "minimum": 0 },
+          "apr": { "type": "number", "minimum": 0 },
+          "status": { "type": "string", "enum": ["OPEN", "CLOSED", "CHARGE_OFF", "COLLECTION", "PAID"] },
+          "dateOfFirstDelinquency": { "type": ["string", "null"] },
+          "bureausReporting": {
+            "type": "array",
+            "items": { "type": "string", "enum": ["EQUIFAX", "EXPERIAN", "TRANSUNION"] }
+          }
+        }
+      }
+    }
+  }
+}
