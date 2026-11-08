@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  credit-api-gateway:
+    build:
+      context: .
+      dockerfile: apps/api-gateway/Dockerfile
+    ports:
+      - "4100:4100"
+    environment:
+      - PORT=4100
+      - HOME_LOAN_ORCHESTRATOR_URL=http://host.docker.internal:4000/api/applications/originate
+    restart: unless-stopped
